@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container top-container">
+  <h3>Your Datasets</h3>
+<div class="accordion" id="data_overview">
+  {% for s in overview_list %}
+    <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#{{ s.id }}" aria-expanded="true" aria-controls="collapseOne">
+          {{ s.name }}
+        </button>
+      </h2>
+    </div>
+
+    <div id="{{ s.id }}" class="collapse show" aria-labelledby="headingOne" data-parent="#data_overview">
+      <div class="card-body">
+          {{ s.accuracy }}
+
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+{% endblock %}

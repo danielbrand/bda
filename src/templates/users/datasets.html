@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container top-container">
+  <h3>Your Datasets</h3>
+  <div class="row">
+    <div class="col-sm">
+      <div class="accordion" id="data_overview">
+        {% for s in overview_list_user %}
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#{{ s.id }}" aria-expanded="true" aria-controls="collapseOne">
+                  {{ s.name }}
+                </button>
+              </h2>
+            </div>
+
+            <div id="{{ s.id }}" class="collapse show" aria-labelledby="headingOne" data-parent="#data_overview">
+              <div class="card-body">
+                <table>
+                  <tr>
+                    <td>Number of columns</td>
+                    <td>{{ s.columns }}</td>
+                  </tr>
+                  <tr>
+                    <td>Number of rows</td>
+                    <td>{{ s.rows }}</td>
+                  </tr>
+                  <tr>
+                    <td>Initial prediction accuracy</td>
+                    <td> {{ s.acc }} </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row justify-content-md-right">
+    <form action="{{ url_for('analytics.data_input') }}">
+      <button type="submit" class="btn btn-primary rounded-circle">
+          <i class="fas fa-plus-circle"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

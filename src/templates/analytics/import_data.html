@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<div class="container top-container">
+		<div class="row">
+			<div class="col-sm">
+				<h2>Import your dataset</h2>
+				<p>Just take the dataset you want to analyse and drop it in the box below. Then select the scenario that fits your current project the best and we will create a holistic dashbord for you.</p>
+			</div>
+		</div>
+		</br>
+		</br>
+		<form method="post" enctype="multipart/form-data" action="{{ url_for('users.datasets') }}">
+        <div class="row justify-content-around">
+			<div class="col-sm outline-grey marg-right">
+				<h3>Please drop your dataset here</h3>
+                    <div class="form-group">
+                        <label for="data">Upload your dataset</label>
+                        <input type="file" class="form-control-file" id="data" name="data">
+                    </div>
+			</div>
+		</div>
+            <br />
+            <div class="row">
+                <button type="submit" class="btn btn-primary">Import data</button>
+            </div>
+        </form>
+	</div>
+
+{% endblock %}

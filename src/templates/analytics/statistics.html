@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <div class="container-fluid full-width top-container">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block black sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="#">
+                            Your Datasets <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        {% for s in sources %}
+                        <li>
+                            <a class="nav-item text-white" href="{{ url_for('analytics.show_statistics') }}">
+                            {{ s.name }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Descriptive Statistics</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group mr-2">
+                            <button class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <span data-feather="calendar"></span>This week
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 outline-grey" align="center">
+                        <i class="fas fa-chart-bar fa-9x"></i>
+                    </div>
+
+                    <div class="col-lg-6 outline-grey" align="center">
+                        <i class="fas fa-chart-bar fa-9x"></i>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+{% endblock %}

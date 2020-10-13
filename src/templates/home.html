@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="section window-height" align="center">
+    <div class="container">
+        <div class="row" style="padding-top: 40px">
+            <div class="col-sm">
+                <h4>Step 1</h4>
+                <i class="fas fa-database fa-6x"></i>
+                <br />
+                <p>Import your data</p>
+            </div>
+            <div class="col-sm">
+                <h4>Step 2</h4>
+                <i class="fas fa-chart-bar fa-6x"></i>
+                <br />
+                <p>Get your analysis</p>
+            </div>
+            <div class="col-sm">
+                <h4>Step 3</h4>
+                <i class="fas fa-money-bill-alt fa-6x"></i>
+                <br />
+                <p>Profit</p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 my-auto" align="left">
+                <h3>Get Started Now!</h3>
+                <br />
+                <p> It is super easy to get started with the web application. Simply press the button below
+                to get to the next page.</p>
+                <br />
+                <form action="{{ url_for('analytics.data_input') }}">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Get Going</button>
+                </form>
+            </div>
+            <div class="col-sm-6" align="right" style="overflow: hidden; hight: 100%">
+                <img src="/static/img/data_analytics.jpg" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
